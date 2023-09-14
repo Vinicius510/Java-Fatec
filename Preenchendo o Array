@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class PreenchendoOArray {
+    public static void main(String[] args) {
+        int[] numeros = new int[10];
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite 10 números:");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+        }
+
+        scanner.close();
+
+        int valorMaisFrequente = encontrarValorMaisFrequente(numeros);
+
+        int frequenciaMaisFrequente = contarFrequencia(numeros, valorMaisFrequente);
+
+        System.out.println("O valor mais frequente é: " + valorMaisFrequente);
+        System.out.println("Frequência do valor mais frequente: " + frequenciaMaisFrequente);
+    }
+
+    public static int encontrarValorMaisFrequente(int[] array) {
+        int valorMaisFrequente = array[0];
+        int maiorFrequencia = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            int frequencia = contarFrequencia(array, array[i]);
+            if (frequencia > maiorFrequencia) {
+                maiorFrequencia = frequencia;
+                valorMaisFrequente = array[i];
+            }
+        }
+
+        return valorMaisFrequente;
+    }
+
+    public static int contarFrequencia(int[] array, int valor) {
+        int frequencia = 0;
+
+        for (int elemento : array) {
+            if (elemento == valor) {
+                frequencia++;
+            }
+        }
+
+        return frequencia;
+    }
+}
