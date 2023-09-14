@@ -1,0 +1,20 @@
+import java.util.Random;
+
+public class SimulacaoJogoDados {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int contadorSomaSete = 0;
+
+        for (int i = 0; i < 100; i++) { // Simule 100 lançamentos de dados
+            int dado1 = rand.nextInt(6) + 1; // Dado 1: números de 1 a 6
+            int dado2 = rand.nextInt(6) + 1; // Dado 2: números de 1 a 6
+            int soma = dado1 + dado2;
+
+            if (soma == 7) {
+                contadorSomaSete++;
+            }
+        }
+
+        System.out.println("Número de vezes que a soma foi 7: " + contadorSomaSete);
+    }
+}
