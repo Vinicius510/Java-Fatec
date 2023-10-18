@@ -1,0 +1,280 @@
+//1.    Array de Números Pares:
+
+import java.util.Random;
+
+public class NumerosPares {
+    public static void main(String[] args) {
+        int[] numeros = new int[10];
+        Random rand = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            numeros[i] = rand.nextInt(100); // Gere números aleatórios de 0 a 99
+        }
+
+        System.out.println("Números pares no array:");
+
+        for (int numero : numeros) {
+            if (numero % 2 == 0) {
+                System.out.println(numero);
+            }
+        }
+    }
+}
+
+
+//2.    Adivinhe o Número:
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class AdivinheONumero {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int numeroAleatorio = rand.nextInt(100) + 1; // Gere número aleatório entre 1 e 100
+        Scanner scanner = new Scanner(System.in);
+        int tentativas = 0;
+
+        System.out.println("Tente adivinhar o número entre 1 e 100.");
+
+        while (true) {
+            System.out.print("Seu palpite: ");
+            int palpite = scanner.nextInt();
+            tentativas++;
+
+            if (palpite == numeroAleatorio) {
+                System.out.println("Parabéns! Você acertou em " + tentativas + " tentativas.");
+                break;
+            } else if (palpite < numeroAleatorio) {
+                System.out.println("Tente um número maior.");
+            } else {
+                System.out.println("Tente um número menor.");
+            }
+        }
+    }
+}
+
+
+//3.    Média de Valores:
+
+import java.util.Random;
+
+public class MediaValores {
+    public static void main(String[] args) {
+        int[] numeros = new int[20];
+        Random rand = new Random();
+
+        for (int i = 0; i < 20; i++) {
+            numeros[i] = rand.nextInt(100); // Gere números aleatórios de 0 a 99
+        }
+
+        int soma = 0;
+
+        for (int numero : numeros) {
+            soma += numero;
+        }
+
+        double media = (double) soma / 20;
+        System.out.println("Média dos números aleatórios: " + media);
+    }
+}
+
+
+//4.    Número Máximo e Mínimo:
+
+import java.util.Random;
+
+public class NumeroMaxMin {
+    public static void main(String[] args) {
+        int[] numeros = new int[15];
+        Random rand = new Random();
+
+        for (int i = 0; i < 15; i++) {
+            numeros[i] = rand.nextInt(100); // Gere números aleatórios de 0 a 99
+        }
+
+        int minimo = numeros[0];
+        int maximo = numeros[0];
+
+        for (int numero : numeros) {
+            if (numero < minimo) {
+                minimo = numero;
+            }
+            if (numero > maximo) {
+                maximo = numero;
+            }
+        }
+
+        System.out.println("Mínimo: " + minimo);
+        System.out.println("Máximo: " + maximo);
+    }
+}
+
+
+//5.    Contando Ímpares:
+
+import java.util.Random;
+
+public class ContandoImpares {
+    public static void main(String[] args) {
+        int[] numeros = new int[30];
+        Random rand = new Random();
+
+        for (int i = 0; i < 30; i++) {
+            numeros[i] = rand.nextInt(100); // Gere números aleatórios de 0 a 99
+        }
+
+        int contadorImpares = 0;
+
+        for (int numero : numeros) {
+            if (numero % 2 != 0) {
+                contadorImpares++;
+            }
+        }
+
+        System.out.println("Quantidade de números ímpares: " + contadorImpares);
+    }
+}
+
+
+//6.    Reversão de Array:
+
+import java.util.Random;
+
+public class ReversaoArray {
+    public static void main(String[] args) {
+        int[] numeros = new int[10];
+        Random rand = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            numeros[i] = rand.nextInt(100); // Gere números aleatórios de 0 a 99
+        }
+
+        System.out.println("Array original:");
+
+        for (int numero : numeros) {
+            System.out.print(numero + " ");
+        }
+
+        System.out.println("\nArray em ordem reversa:");
+
+        for (int i = 9; i >= 0; i--) {
+            System.out.print(numeros[i] + " ");
+        }
+    }
+}
+
+
+//7.    Frequência de Números:
+
+import java.util.Random;
+
+public class FrequenciaNumeros {
+    public static void main(String[] args) {
+        int[] numeros = new int[50];
+        Random rand = new Random();
+
+        for (int i = 0; i < 50; i++) {
+            numeros[i] = rand.nextInt(10) + 1; // Gere números aleatórios entre 1 e 10
+        }
+
+        int[] frequencia = new int[10];
+
+        for (int numero : numeros) {
+            frequencia[numero - 1]++;
+        }
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Número " + (i + 1) + " ocorre " + frequencia[i] + " vezes.");
+        }
+    }
+}
+
+
+//8.    Preenchendo o Array:
+
+import java.util.Scanner;
+
+public class ValorMaisFrequente {
+    public static void main(String[] args) {
+        int[] numeros = new int[10];
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Digite um número: ");
+            numeros[i] = scanner.nextInt();
+        }
+
+        int[] frequencia = new int[11];
+        int valorMaisFrequente = 0;
+        int maiorFrequencia = 0;
+
+        for (int numero : numeros) {
+            frequencia[numero]++;
+            if (frequencia[numero] > maiorFrequencia) {
+                maiorFrequencia = frequencia[numero];
+                valorMaisFrequente = numero;
+            }
+        }
+
+        System.out.println("O valor mais frequente é " + valorMaisFrequente + " com uma frequência de " + maiorFrequencia + " vezes.");
+    }
+}
+
+
+//9.    Busca Linear:
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class BuscaLinear {
+    public static void main(String[] args) {
+        int[] numeros = new int[25];
+        Random rand = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < 25; i++) {
+            numeros[i] = rand.nextInt(100); // Gere números aleatórios de 0 a 99
+        }
+
+        System.out.print("Digite um número para buscar no array: ");
+        int numeroBusca = scanner.nextInt();
+        boolean encontrado = false;
+
+        for (int numero : numeros) {
+            if (numero == numeroBusca) {
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (encontrado) {
+            System.out.println("O número foi encontrado no array.");
+        } else {
+            System.out.println("O número não foi encontrado no array.");
+        }
+    }
+}
+
+
+//10.   Simulação de Jogo de Dados:
+
+import java.util.Random;
+
+public class SimulacaoJogoDados {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int contagemSete = 0;
+
+        for (int i = 0; i < 100; i++) {
+            int dado1 = rand.nextInt(6) + 1; // Simula o lançamento de um dado de 6 lados
+            int dado2 = rand.nextInt(6) + 1;
+            int soma = dado1 + dado2;
+
+            if (soma == 7) {
+                contagemSete++;
+            }
+        }
+
+        System.out.println("O número 7 ocorreu " + contagemSete + " vezes em 100 lançamentos de dados.");
+    }
+}
